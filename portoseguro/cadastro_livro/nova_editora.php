@@ -1,13 +1,24 @@
 <?php
-    //Criando conexão com o banco de dados
-    $host     ="localhost";
-    $user     ="root";
-    $password ="";
-    $database ="cadastro_livro";
-    
-    $conexao = @mysqli_connect($host, $user, $password, $database);
-   mysqli_set_charset($conexao, 'utf8') or die(mysqli_error($conexao));
+//Criando conexão com o banco de dados
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "cadastro_livro";
 
+$conexao = @mysqli_connect($host, $user, $password, $database);
+mysqli_set_charset($conexao, 'utf8') or die(mysqli_connect_errno($conexao));
+
+if (isset($_POST["enviado"])) {
+    $txt_editora = $_POST["txt_editora"];
+    $sql = "INSERT INTO editora (editora) VALUES ('$txt_editora')";
+    $qry = mysqli_query($conexao, $sql);
+
+    if ($qry) {
+        echo "Inserido com sucesso";
+    } else {
+        echo"erro ao cadastrar";
+    }
+}
 ?>
 
 
