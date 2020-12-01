@@ -7,7 +7,7 @@
 </head>
 <body>
      <h1 align="center">Sistema de Cadastro de Livros</h1>
-     <hr>
+    <hr>
         <ul>
              <li><a href="nova_editora.php"> Nova editora</a></li>
              <li><a href="lista_editora.php">Lista de editoras</a></li>
@@ -15,9 +15,9 @@
         
              <li><a href="lista_livro.php">Lista de Livros</a></li>
              <li><a href="novo_livro.php">Novo Livro</a></li>
-             <li><a href="buca_livro.php">Consulta Livro</a></li>
+             <li><a href="busca_livro.php">Consulta Livro</a></li>
         </ul>
-     </hr>
+    </hr>
 </body>
 </html>
 
