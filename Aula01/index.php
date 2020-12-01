@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        
+        //Code the project
     ?>
 </body>
 </html>
