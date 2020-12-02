@@ -33,6 +33,7 @@ if (isset($_POST["enviado"])) {
         <h1 align="center">Nome da editora</h1>
         <hr>
         <br>
+        <a href="lista_editora.php">Lista de Editoras</a>
         <form method="post">
             <tr>
                 Editora: <td><input type="text" name="txt_editora"></td>
