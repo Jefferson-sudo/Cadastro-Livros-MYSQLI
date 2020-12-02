@@ -1,5 +1,5 @@
 <?php
-/* PROGRAMDOR RESPONSAVEL
+/* PROGRAMADOR RESPONSAVEL
  * Analista Desenvolvedor Jefferson Mateus
  * Matipó MG  02/12/2020 às 14:52  
  */    
