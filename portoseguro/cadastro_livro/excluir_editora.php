@@ -1,5 +1,8 @@
 <?php
 //Criando conexão com o banco de dados
+/*Proxima aula 16
+ * 
+ */
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -11,6 +14,9 @@ mysqli_set_charset($conexao, 'utf8') or die(mysqli_connect_errno($conexao));
 if (isset($_GET["id"])) {//sql delete 
     $sql = "DELETE FROM `editora` WHERE `editora`.`id_editora` = " . $_GET["id"];
     $qry = mysqli_query($conexao, $sql);
+    if ($qry) {
+        $excluido = "<style> p{color:#227C2C; } </style><p>Exluido com sucesso!</p>";
+    }
 }
 ?>
 
@@ -22,6 +28,7 @@ if (isset($_GET["id"])) {//sql delete
         <title>Curso mysqli Cadastro de Livro</title>
     </head>
     <body>
+        <h1>Excluir Editora</h1>
         <!--Mostro a tabela atualizada-->
         <table border="1px" width="50%">
             <tr>
@@ -41,5 +48,6 @@ if (isset($_GET["id"])) {//sql delete
                 </tr>
             <?php } ?>
         </table>
+        <?php echo $excluido ?>
     </body>
 </html>

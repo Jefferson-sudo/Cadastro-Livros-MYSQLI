@@ -34,7 +34,7 @@ if (isset($_POST["enviado"])) {// Se o post recebido for igual a ["enviado"]
      * $id_editora para saber qual id vai ser alterado no banco de dados
      */
     if ($qry) {
-        $editado = "Alterado com sucesso!";
+        header("location:lista_editora.php");
     } else {
         $editado = "Erro ao atualizar dados";
     }
