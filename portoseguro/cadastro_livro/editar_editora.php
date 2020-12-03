@@ -2,15 +2,9 @@
 /* PROGRAMADOR RESPONSAVEL
  * Analista Desenvolvedor Jefferson Mateus
  * Matipó MG  02/12/2020 às 14:52  
- */    
+ */
 //Criando conexão com o banco de dados
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "cadastro_livro";
-
-$conexao = @mysqli_connect($host, $user, $password, $database);
-mysqli_set_charset($conexao, 'utf8') or die(mysqli_connect_errno($conexao));
+require("config/config.php");
 
 $id_editora = isset($_GET["id"]) ? $_GET["id"] : NULL;
 /*
@@ -25,7 +19,7 @@ if (isset($_POST["enviado"])) {// Se o post recebido for igual a ["enviado"]
      */
     $id_editora = $_POST["id"];
     $txt_editora = $_POST["txt_editora"];
-    
+
     $sql = " UPDATE `editora` SET `editora`= '$txt_editora' WHERE `id_editora` = '$id_editora' ";
     $qry = mysqli_query($conexao, $sql);
     /*
@@ -41,15 +35,15 @@ if (isset($_POST["enviado"])) {// Se o post recebido for igual a ["enviado"]
 }
 
 if (isset($id_editora)) {
-    /*Se $id_editora for verdadeira pega os dados e coloca dentro da $editora para mostrar
+    /* Se $id_editora for verdadeira pega os dados e coloca dentro da $editora para mostrar
      */
     $sql = "SELECT * FROM editora WHERE id_editora = " . $id_editora;
     $qry = mysqli_query($conexao, $sql);
     $editora = mysqli_fetch_array($qry);
 }
 
-$txt_editora = isset($editora["editora"]) ? $editora["editora"] : NULL; 
-/*Coloca os dados do array $editora no indice ["editora"]
+$txt_editora = isset($editora["editora"]) ? $editora["editora"] : NULL;
+/* Coloca os dados do array $editora no indice ["editora"]
  *  dentro da variavel $txt_edirora */
 ?>
 
@@ -79,6 +73,6 @@ $txt_editora = isset($editora["editora"]) ? $editora["editora"] : NULL;
                 <td><input type="submit" value="Editar"></td>
             </tr>
         </form>
-        <p> <?php echo @$editado; //Imprime se a alteração foi realizada com sucesso ?></p>
+        <p> <?php echo @$editado; //Imprime se a alteração foi realizada com sucesso     ?></p>
     </body>
 </html>
