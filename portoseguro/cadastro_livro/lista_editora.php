@@ -20,17 +20,17 @@ require("config/config.php");
                 <td width="30%">Editora</td>
                 <td colspan='2' width="15%">Opções</td>
             </tr>
-<?php
-$qry = mysqli_query($conexao, "SELECT * FROM `editora`");
-while ($linha = mysqli_fetch_array($qry)) {
-    ?>
+            <?php
+            $qry = mysqli_query($conexao, "SELECT * FROM `editora`");
+            while ($linha = mysqli_fetch_array($qry)) {
+                ?>
                 <tr>
                     <td><?php echo $linha["id_editora"]; ?></td>
                     <td><?php echo $linha["editora"]; ?></td>
                     <td><a href="<?php echo "editar_editora.php?id=" . $linha["id_editora"] ?>">Editar</a></td>
                     <td><a href="<?php echo "excluir_editora.php?id=" . $linha["id_editora"]; ?>">Excluir</a></td>
                 </tr>
-<?php } ?>
+            <?php } ?>
         </table>
     </body>
 </html>
