@@ -1,7 +1,5 @@
 <?php
 
-require ("config.php"); //Conexao com banco de dados
-
 function openConection() {//Abrir conexao
     $conection = @mysqli_connect(HOST, USER, PASSWORD, DATABASE) or die(mysqli_connect_error());
     mysqli_set_charset($conection, CHARSET);
@@ -40,13 +38,14 @@ function queryData($tabela, $condicao = NULL, $campos = "*") {
 
 //Funcao para insercao de dados
 function insertData($tabela, array $dados) {
-     openConection();
+    openConection();
 
     $campos = implode(", ", array_keys($dados)); //Pega as chaves do array 
     $valores = "'" . implode("','", $dados) . "'"; //Pega os valores do array
     $sql = "INSERT INTO `$tabela`({$campos}) VALUES ({$valores})";
 
-    runsql($sql);
+    $qry = runsql($sql);
+    return $qry;
 }
 
 //Atualizar dados
