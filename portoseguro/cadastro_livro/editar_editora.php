@@ -4,7 +4,9 @@
  * Matipó MG  02/12/2020 às 14:52  
  */
 //Criando conexão com o banco de dados
+
 require("config/config.php");
+require("config/crud.php");
 
 $id_editora = isset($_GET["id"]) ? $_GET["id"] : NULL;
 /*
@@ -15,34 +17,36 @@ if (isset($_POST["enviado"])) {// Se o post recebido for igual a ["enviado"]
     /*
      * Pega os valores pelo metado post.
      * $id_editora  guarda o id 
-     * $txt_editora guarda o novo nome da editora
      */
     $id_editora = $_POST["id"];
-    $txt_editora = $_POST["txt_editora"];
 
-    $sql = " UPDATE `editora` SET `editora`= '$txt_editora' WHERE `id_editora` = '$id_editora' ";
-    $qry = mysqli_query($conexao, $sql);
+    /* $sql = " UPDATE `editora` SET `editora`= '$txt_editora' WHERE `id_editora` = '$id_editora' ";
+      $qry = mysqli_query($conexao, $sql); */
+    vardump($id_editora);
+
+    $dados = array(
+        "editora" => $txt_editora
+    );
+    $altera = updateData("editora", $dados, "id_editora` = " . $id_editora);
+    var_dump($altera);
+
     /*
      * Query para manda o comando para atualizar os dados mandando os valores contidos nas variaveis:
      * $txt_editora com o novo nome da editora
      * $id_editora para saber qual id vai ser alterado no banco de dados
      */
-    if ($qry) {
-        header("location:lista_editora.php");
-    } else {
-        $editado = "Erro ao atualizar dados";
-    }
 }
 
 if (isset($id_editora)) {
     /* Se $id_editora for verdadeira pega os dados e coloca dentro da $editora para mostrar
      */
-    $sql = "SELECT * FROM editora WHERE id_editora = " . $id_editora;
-    $qry = mysqli_query($conexao, $sql);
-    $editora = mysqli_fetch_array($qry);
+    /*  $sql = "SELECT * FROM editora WHERE id_editora = " . $id_editora;
+      $qry = mysqli_query($conexao, $sql);
+      $editora = mysqli_fetch_array($qry); */
+    $editora = queryData("editora", "id_editora = " . $id_editora);
 }
 
-$txt_editora = isset($editora["editora"]) ? $editora["editora"] : NULL;
+$txt_editora = isset($editora[0]["editora"]) ? $editora[0]["editora"] : NULL;
 /* Coloca os dados do array $editora no indice ["editora"]
  *  dentro da variavel $txt_edirora */
 ?>
@@ -73,6 +77,6 @@ $txt_editora = isset($editora["editora"]) ? $editora["editora"] : NULL;
                 <td><input type="submit" value="Editar"></td>
             </tr>
         </form>
-        <p> <?php echo @$editado; //Imprime se a alteração foi realizada com sucesso     ?></p>
+        <p> <?php echo @$editado; //Imprime se a alteração foi realizada com sucesso                  ?></p>
     </body>
 </html>

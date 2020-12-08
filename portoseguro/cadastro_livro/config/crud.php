@@ -50,15 +50,12 @@ function insertData($tabela, array $dados, $id = false) {
 
 //Atualizar dados
 function updateData($tabela, array $dados, $condicao) {
-    $conexao = openConection();
+    openConection();
 
-    /* ESSA SOLUCAO NAO FUNCIONOU POIS NAO POSSIBILITA QUE SEJA ALTERO MAIS DE UM CAMPO POR VEZ
-      $campos = implode("`, `", array_keys($dados)); //Pega as chaves do array
-      $valores = "'" . implode("','", $dados) . "'"; //Pega os valores do array */
 
-    foreach ($dados as $chave => $valor)//Farrer os dados
+    foreach ($dados as $chave => $valor) {//Varrer os dados
         $campos[] = "{$chave}` = '{$valor}' ";
-
+    }
     $campos = implode(", ", $campos);
     $sql = "UPDATE `$tabela` SET `{$campos} WHERE `$tabela`.`{$condicao}  ";
     runsql($sql);

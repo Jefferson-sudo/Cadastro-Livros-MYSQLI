@@ -1,19 +1,17 @@
 <?php
 //Criando conexão com o banco de dados
-/*Proxima aula 16
+/* Proxima aula 16
  * 
  */
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "cadastro_livro";
-
-$conexao = @mysqli_connect($host, $user, $password, $database);
-mysqli_set_charset($conexao, 'utf8') or die(mysqli_connect_errno($conexao));
+require("config/config.php");
+require("config/crud.php");
 
 if (isset($_GET["id"])) {//sql delete 
-    $sql = "DELETE FROM `editora` WHERE `editora`.`id_editora` = " . $_GET["id"];
-    $qry = mysqli_query($conexao, $sql);
+    /* $sql = "DELETE FROM `editora` WHERE `editora`.`id_editora` = " . $_GET["id"];
+      $qry = mysqli_query($conexao, $sql); */
+
+    $id_editora = $_GET["id"];
+    $qry = deleteData("editora", "id_editora = " . $id_editora);
     if ($qry) {
         $excluido = "<style> p{color:#227C2C; } </style><p>Exluido com sucesso!</p>";
     }
@@ -37,8 +35,11 @@ if (isset($_GET["id"])) {//sql delete
                 <td colspan='2' width="15%">Opções</td>
             </tr>
             <?php
-            $qry = mysqli_query($conexao, "SELECT * FROM `editora`");
-            while ($linha = mysqli_fetch_array($qry)) {
+            /* $qry = mysqli_query($conexao, "SELECT * FROM `editora`");
+              while ($linha = mysqli_fetch_array($qry)) */
+
+            $editora = queryData("editora");
+            foreach ($editora as $linha) {
                 ?>
                 <tr>
                     <td><?php echo $linha["id_editora"]; ?></td>
