@@ -1,6 +1,7 @@
 <?php
 //Criando conexão com o banco de dados
 require("config/config.php");
+require ("config/crud.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +22,11 @@ require("config/config.php");
                 <td colspan='2' width="15%">Opções</td>
             </tr>
             <?php
-            $qry = mysqli_query($conexao, "SELECT * FROM `editora`");
-            while ($linha = mysqli_fetch_array($qry)) {
+            /* $qry = mysqli_query($conexao, "SELECT * FROM `editora`");
+              while ($linha = mysqli_fetch_array($qry)) */
+
+            $editora = queryData("editora");
+            foreach ($editora as $linha) {
                 ?>
                 <tr>
                     <td><?php echo $linha["id_editora"]; ?></td>
