@@ -22,8 +22,6 @@ require ("config/crud.php");
                 <td colspan='2' width="15%">Opções</td>
             </tr>
             <?php
-            /* $qry = mysqli_query($conexao, "SELECT * FROM `editora`");
-              while ($linha = mysqli_fetch_array($qry)) */
 
             $editora = queryData("editora");
             foreach ($editora as $linha) {

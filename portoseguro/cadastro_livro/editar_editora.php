@@ -1,82 +1,47 @@
 <?php
-/* PROGRAMADOR RESPONSAVEL
- * Analista Desenvolvedor Jefferson Mateus
- * Matipó MG  02/12/2020 às 14:52  
- */
 //Criando conexão com o banco de dados
-
 require("config/config.php");
-require("config/crud.php");
+require ("config/crud.php");
+
 
 $id_editora = isset($_GET["id"]) ? $_GET["id"] : NULL;
-/*
- * Se o id for um _GET  $id_editora recebe _GET. Se não ele recebe NULL
- */
-
-if (isset($_POST["enviado"])) {// Se o post recebido for igual a ["enviado"]
-    /*
-     * Pega os valores pelo metado post.
-     * $id_editora  guarda o id 
-     */
-    $id_editora = $_POST["id"];
-
-    /* $sql = " UPDATE `editora` SET `editora`= '$txt_editora' WHERE `id_editora` = '$id_editora' ";
-      $qry = mysqli_query($conexao, $sql); */
-    vardump($id_editora);
+if (isset($_POST["enviado"])) {
+    $txt_editora = $_POST["txt_editora"];
 
     $dados = array(
         "editora" => $txt_editora
     );
-    $altera = updateData("editora", $dados, "id_editora` = " . $id_editora);
-    var_dump($altera);
+    $qry = updateData("editora", $dados, "id_editora` =" . $id_editora);
 
-    /*
-     * Query para manda o comando para atualizar os dados mandando os valores contidos nas variaveis:
-     * $txt_editora com o novo nome da editora
-     * $id_editora para saber qual id vai ser alterado no banco de dados
-     */
+    if ($qry) {
+        echo "Editado com sucesso";
+    } else {
+        echo"erro ao editar";
+    }
 }
-
 if (isset($id_editora)) {
-    /* Se $id_editora for verdadeira pega os dados e coloca dentro da $editora para mostrar
-     */
-    /*  $sql = "SELECT * FROM editora WHERE id_editora = " . $id_editora;
-      $qry = mysqli_query($conexao, $sql);
-      $editora = mysqli_fetch_array($qry); */
-    $editora = queryData("editora", "id_editora = " . $id_editora);
+    $editora = queryDataEditar("editora", "id_editora = $id_editora");
 }
-
-$txt_editora = isset($editora[0]["editora"]) ? $editora[0]["editora"] : NULL;
-/* Coloca os dados do array $editora no indice ["editora"]
- *  dentro da variavel $txt_edirora */
+$txt_editora = isset($editora[0]["editora"])? $editora[0]["editora"] : NULL;
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Curso mysqli Cadastro de Livro</title>
-        <style>
-            p{
-                color:#1E8836;
-            }
-        </style>
+        <title>Editar de Editora</title>
     </head>
     <body>
-        <h1 align="center">Editar editora</h1>
+        <h1 align="center">Nome da editora</h1>
         <hr>
         <br>
         <a href="lista_editora.php">Lista de Editoras</a>
         <form method="post">
             <tr>
-                Editora: <td><input type="text" name="txt_editora" value="<?php echo $txt_editora ?>"></td>
+                Editora: <td><input type="text" name="txt_editora" value="<?php echo $txt_editora; ?>"></td>
                 <td><input type="hidden" name="enviado" value="ok"></td>
-                <td><input type="hidden" name="id" value="<?php echo $id_editora ?>"></td>
                 <td><input type="submit" value="Editar"></td>
             </tr>
         </form>
-        <p> <?php echo @$editado; //Imprime se a alteração foi realizada com sucesso                  ?></p>
     </body>
 </html>
