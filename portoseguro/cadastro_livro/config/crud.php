@@ -37,7 +37,7 @@ function queryData($tabela, $condicao = NULL, $campos = "*") {
 }
 
 //Funcao para insercao de dados
-function insertData($tabela, array $dados) {
+function insertData($tabela, array $dados, $id = false) {
     openConection();
 
     $campos = implode(", ", array_keys($dados)); //Pega as chaves do array 

@@ -5,12 +5,14 @@ require ("config/crud.php");
 
 if (isset($_POST["enviado"])) {
     $txt_editora = $_POST["txt_editora"];
+    
    /* $sql = "INSERT INTO `editora` (editora) VALUES ('$txt_editora')";
     $qry = mysqli_query($conexao, $sql);*/
+    
     $dados = array (
         "editora" => $txt_editora
     );
-    $qry = insertData("editora", $dados);
+    $qry = insertData("editora", $dados, true);
 
     if ($qry) {
         echo "Inserido com sucesso";
