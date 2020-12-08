@@ -26,7 +26,7 @@ if (isset($_GET["id"])) {//sql delete
         <title>Curso mysqli Cadastro de Livro</title>
     </head>
     <body>
-        <h1>Excluir Editora</h1>
+        <a href="lista_editora.php">Voltar</a>
         <!--Mostro a tabela atualizada-->
         <table border="1px" width="50%">
             <tr>
