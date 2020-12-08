@@ -20,9 +20,10 @@ if (isset($_POST["enviado"])) {
     }
 }
 if (isset($id_editora)) {
-    $editora = queryDataEditar("editora", "id_editora = $id_editora");
+    $editora = queryData("`editora` WHERE `id_editora`= $id_editora");
 }
-$txt_editora = isset($editora[0]["editora"])? $editora[0]["editora"] : NULL;
+
+$txt_editora = isset($editora[0]["editora"]) ? $editora[0]["editora"] : NULL;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,6 +37,7 @@ $txt_editora = isset($editora[0]["editora"])? $editora[0]["editora"] : NULL;
         <hr>
         <br>
         <a href="lista_editora.php">Lista de Editoras</a>
+        <a href="index.php">Home</a>
         <form method="post">
             <tr>
                 Editora: <td><input type="text" name="txt_editora" value="<?php echo $txt_editora; ?>"></td>

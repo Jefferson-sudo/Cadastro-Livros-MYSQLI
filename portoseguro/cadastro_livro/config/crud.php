@@ -21,21 +21,23 @@ function runsql($sql) {
     return $qry;
 }
 
-//Funcoa para fazer busca SELECT. SOMENTE PARA O ARQUIVO iditar_editora.php. Por enquanto vai ser assim
-function queryDataEditar($tabela, $condicao = NULL, $campos = "*") {
-    $sql = "SELECT {$campos} FROM `{$tabela}` WHERE {$condicao}";
-    $qry = runsql($sql);
+/*
+  //Funcoa para fazer busca SELECT. SOMENTE PARA O ARQUIVO iditar_editora.php. Por enquanto vai ser assim
+  function queryDataEditar($tabela, $condicao = NULL, $campos = "*") {
+  $sql = "SELECT {$campos} FROM `{$tabela}` WHERE {$condicao}";
+  $qry = runsql($sql);
 
-    if (!mysqli_num_rows($qry)) {
-        return FALSE;
-    } else {
-        while ($linha = @mysqli_fetch_array($qry)) {
-            $dados[] = $linha;
-        }
-        return $dados;
-    }
-    
-}
+  if (!mysqli_num_rows($qry)) {
+  return FALSE;
+  } else {
+  while ($linha = @mysqli_fetch_array($qry)) {
+  $dados[] = $linha;
+  }
+  return $dados;
+  }
+
+  } */
+
 //Funcoa para fazer busca SELECT
 function queryData($tabela, $condicao = NULL, $campos = "*") {
     $sql = "SELECT {$campos} FROM {$tabela} {$condicao}";

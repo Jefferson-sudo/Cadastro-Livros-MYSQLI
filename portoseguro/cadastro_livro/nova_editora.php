@@ -5,11 +5,11 @@ require ("config/crud.php");
 
 if (isset($_POST["enviado"])) {
     $txt_editora = $_POST["txt_editora"];
-    
-   /* $sql = "INSERT INTO `editora` (editora) VALUES ('$txt_editora')";
-    $qry = mysqli_query($conexao, $sql);*/
-    
-    $dados = array (
+
+    /* $sql = "INSERT INTO `editora` (editora) VALUES ('$txt_editora')";
+      $qry = mysqli_query($conexao, $sql); */
+
+    $dados = array(
         "editora" => $txt_editora
     );
     $qry = insertData("editora", $dados, true);
@@ -34,6 +34,7 @@ if (isset($_POST["enviado"])) {
         <h1 align="center">Nome da editora</h1>
         <hr>
         <br>
+        <a href="index.php">Home</a>
         <a href="lista_editora.php">Lista de Editoras</a>
         <form method="post">
             <tr>
