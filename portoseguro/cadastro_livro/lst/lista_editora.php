@@ -1,7 +1,7 @@
 <?php
 //Criando conexão com o banco de dados
-require("config/config.php");
-require ("config/crud.php");
+require("../config/config.php");
+require ("../config/crud.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ require ("config/crud.php");
     <body>
         <h1 align="center">Cadastro de Editora</h1>
 
-        <a href="index.php">Home</a>|<a href="nova_editora.php">Novo Cadastro</a>
+        <a href="../index.php">Home</a>|<a href="../frm/nova_editora.php">Novo Cadastro</a>
         <table border="1px" width="50%">
             <tr>
                 <td width="5%">ID</td>
@@ -29,8 +29,8 @@ require ("config/crud.php");
                 <tr>
                     <td><?php echo $linha["id_editora"]; ?></td>
                     <td><?php echo $linha["editora"]; ?></td>
-                    <td><a href="<?php echo "editar_editora.php?id=" . $linha["id_editora"] ?>">Editar</a></td>
-                    <td><a href="<?php echo "excluir_editora.php?id=" . $linha["id_editora"]; ?>">Excluir</a></td>
+                    <td><a href="<?php echo "../frm/frm_editora.php?id=" . $linha["id_editora"] ?>">Editar</a></td>
+                    <td><a href="<?php echo "../op/excluir_editora.php?id=" . $linha["id_editora"]; ?>">Excluir</a></td>
                 </tr>
             <?php } ?>
         </table>

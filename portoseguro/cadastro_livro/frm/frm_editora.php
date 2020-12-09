@@ -1,7 +1,7 @@
 <?php
 //Criando conexão com o banco de dados
-require("config/config.php");
-require ("config/crud.php");
+require("../config/config.php");
+require ("../config/crud.php");
 
 
 $id_editora = isset($_GET["id"]) ? $_GET["id"] : NULL;

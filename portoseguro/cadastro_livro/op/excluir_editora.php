@@ -3,8 +3,8 @@
 /* Proxima aula 16
  * 
  */
-require("config/config.php");
-require("config/crud.php");
+require("../config/config.php");
+require("../config/crud.php");
 
 if (isset($_GET["id"])) {//sql delete 
     /* $sql = "DELETE FROM `editora` WHERE `editora`.`id_editora` = " . $_GET["id"];
@@ -26,7 +26,7 @@ if (isset($_GET["id"])) {//sql delete
         <title>Curso mysqli Cadastro de Livro</title>
     </head>
     <body>
-        <a href="lista_editora.php">Voltar</a>
+        <a href="../lst/lista_editora.php">Voltar</a>
         <!--Mostro a tabela atualizada-->
         <table border="1px" width="50%">
             <tr>
@@ -44,7 +44,7 @@ if (isset($_GET["id"])) {//sql delete
                 <tr>
                     <td><?php echo $linha["id_editora"]; ?></td>
                     <td><?php echo $linha["editora"]; ?></td>
-                    <td><a href="<?php echo "editar_editora.php?id=" . $linha["id_editora"] ?>">Editar</a></td>
+                    <td><a href="<?php echo "../frm/frm_editora.php?id=" . $linha["id_editora"] ?>">Editar</a></td>
                     <td><a href="<?php echo "excluir_editora.php?id=" . $linha["id_editora"]; ?>">Excluir</a></td>
                 </tr>
             <?php } ?>
