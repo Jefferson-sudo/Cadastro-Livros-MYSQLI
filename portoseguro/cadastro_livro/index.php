@@ -9,8 +9,8 @@
         <h1 align="center">Sistema de Cadastro de Livros</h1>
         <hr>
         <ul>
-            <li><a href="frm/nova_editora.php"> Nova editora</a></li>
-            <li><a href="lst/lista_editora.php">Lista de editoras</a></li>
+            <li><a href="frm/frm_editora.php"> Nova editora</a></li>
+            <li><a href="lst/lst_editora.php">Lista de editoras</a></li>
 
         </ul>
     </body>

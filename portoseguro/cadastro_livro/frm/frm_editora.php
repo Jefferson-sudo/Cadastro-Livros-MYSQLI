@@ -3,22 +3,9 @@
 require("../config/config.php");
 require ("../config/crud.php");
 
-
 $id_editora = isset($_GET["id"]) ? $_GET["id"] : NULL;
-if (isset($_POST["enviado"])) {
-    $txt_editora = $_POST["txt_editora"];
+$acao = isset($_GET["acao"]) ? $_GET["acao"] : "Inserir";
 
-    $dados = array(
-        "editora" => $txt_editora
-    );
-    $qry = updateData("editora", $dados, "id_editora` =" . $id_editora);
-
-    if ($qry) {
-        echo "Editado com sucesso";
-    } else {
-        echo"erro ao editar";
-    }
-}
 if (isset($id_editora)) {
     $editora = queryData("`editora` WHERE `id_editora`= $id_editora");
 }
@@ -33,17 +20,22 @@ $txt_editora = isset($editora[0]["editora"]) ? $editora[0]["editora"] : NULL;
         <title>Editar de Editora</title>
     </head>
     <body>
-        <h1 align="center">Nome da editora</h1>
+        <h1 align="center"><?php echo $acao ?> editora</h1>
         <hr>
         <br>
-        <a href="lista_editora.php">Lista de Editoras</a>
-        <a href="index.php">Home</a>
-        <form method="post">
-            <tr>
-                Editora: <td><input type="text" name="txt_editora" value="<?php echo $txt_editora; ?>"></td>
-                <td><input type="hidden" name="enviado" value="ok"></td>
-                <td><input type="submit" value="Editar"></td>
-            </tr>
+        <a href="../lst/lst_editora.php">Lista de Editoras</a>
+        <a href="../index.php">Home</a>
+        <form method="post" action="../op/op_editora.php">
+            <table>
+                <tr>
+                    <td>Editora:</td>
+                    <td><input type="text" name="txt_editora" value="<?php echo $txt_editora; ?>"></td>
+                    <td><input type="hidden" name="enviado" value="ok"></td>
+                    <td><input type="hidden" name="acao" value="<?php echo $acao ?>"></td>
+                    <td><input type="hidden" name="id" value="<?php echo $id_editora ?>"></td>
+                    <td><input type="submit" value="<?php echo $acao ?>"></td>
+                </tr>
+            </table>
         </form>
     </body>
 </html>

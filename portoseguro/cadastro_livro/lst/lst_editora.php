@@ -13,8 +13,13 @@ require ("../config/crud.php");
     </head>
     <body>
         <h1 align="center">Cadastro de Editora</h1>
+        <?php
+        if (isset($_GET["ok"])) {
+            echo" <p>Operacao realizada com sucesso</p>";
+        }
+        ?>
 
-        <a href="../index.php">Home</a>|<a href="../frm/nova_editora.php">Novo Cadastro</a>
+        <a href="../index.php">Home</a>|<a href="../frm/frm_editora.php">Novo Cadastro</a>
         <table border="1px" width="50%">
             <tr>
                 <td width="5%">ID</td>
@@ -22,15 +27,14 @@ require ("../config/crud.php");
                 <td colspan='2' width="15%">Opções</td>
             </tr>
             <?php
-
             $editora = queryData("editora");
             foreach ($editora as $linha) {
                 ?>
                 <tr>
                     <td><?php echo $linha["id_editora"]; ?></td>
                     <td><?php echo $linha["editora"]; ?></td>
-                    <td><a href="<?php echo "../frm/frm_editora.php?id=" . $linha["id_editora"] ?>">Editar</a></td>
-                    <td><a href="<?php echo "../op/excluir_editora.php?id=" . $linha["id_editora"]; ?>">Excluir</a></td>
+                    <td><a href="<?php echo "../frm/frm_editora.php?acao=Editar&id=" . $linha["id_editora"] ?>">Editar</a></td>
+                    <td><a href="<?php echo "../frm/frm_editora.php?acao=Excluir&id=" . $linha["id_editora"]; ?>">Excluir</a></td>
                 </tr>
             <?php } ?>
         </table>
