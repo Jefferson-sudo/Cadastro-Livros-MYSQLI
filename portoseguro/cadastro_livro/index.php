@@ -3,15 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Curso mysqli Cadastro de Livro</title>
+        <title>JM ligando você ao mundo do conhecimento</title>
     </head>
     <body>
-        <h1 align="center">Sistema de Cadastro de Livros</h1>
-        <hr>
-        <ul>
-            <li><a href="frm/frm_editora.php"> Nova editora</a></li>
-            <li><a href="lst/lst_editora.php">Lista de editoras</a></li>
+       
 
-        </ul>
+        <table border="1" align="center" width="100%" cellpading="0" cellspacing="0" >
+            <tr>
+                <td>
+                    <table border="1" align="center" width="750" cellpadding="0" cellspacing="1">
+                        <tr><td colspan="2"><?php include 'cabecalho.php' ?></td></tr>
+                        <tr>
+                            <td width="140" ><?php include 'menu.php' ?></td>
+                            <td>
+                                <table width="600" cellpacing="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <?php include 'home.php' ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"><?php include 'rodape.php' ?></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
