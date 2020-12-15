@@ -26,9 +26,9 @@ if ($acao == "Excluir") {
     $ok = true;
 }
 if($ok){
-    $url = URL_BASE."index.php?link=2&?ok=S";
+    $url =URL_BASE."../index.php?link=2&?ok=S";
 }else{
-    $url = URL_BASE. "index.php?link=2";
+    $url =URL_BASE. "../index.php?link=2";
 }
 
 header("location:$url");

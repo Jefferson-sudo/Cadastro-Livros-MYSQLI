@@ -25,7 +25,7 @@ if ($acao == "Inserir") {
         "`autor`" => $autor
     );
 
-    $sql = insertData("livro", $dadosInsere, true);
+    insertData("livro", $dadosInsere, true);
     $ok = true;
 }
 
@@ -37,13 +37,13 @@ if ($acao == "Editar") {
 if ($acao == "Excluir") {
     deleteData("livro", "id_livro = " . $id_livro);
     $ok = true;
-}/*
+}
 if ($ok) {
-    $url ="index.php?link=4";
+    $url = URL_BASE ."/index.php?link=4&?ok=S";
 } else {
-    $url ="index.php?link=4";
+    $url = URL_BASE ."/index.php?link=4";
 }
 
-header("location:$url");*/
+header("location:$url");
 
 

@@ -7,7 +7,7 @@ $editora = queryData("editora");
 <h1 align="center">Cadastro de Editora</h1>
 
 <a href="index.php?link=1">Home</a>|<a href="index.php?link=3">Novo Cadastro</a>
-<table border="1px" width="50%">
+<table border="1px" width="100%">
     <tr>
         <td width="5%">ID</td>
         <td width="30%">Editora</td>
