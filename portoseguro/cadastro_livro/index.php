@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-    require("config/config.php");
-    require ("config/crud.php");
+require("config/config.php");
+require ("config/crud.php");
 ?>
 <html lang="pt-br">
     <head>
@@ -29,6 +29,9 @@
                                             $pag [1] = "home.php";
                                             $pag [2] = "lst/lst_editora.php";
                                             $pag [3] = "frm/frm_editora.php";
+                                            $pag [4] = "lst/lst_livro.php";
+                                            $pag [5] = "frm/frm_livro.php";
+
 
                                             if (!empty($link)) {
                                                 if (file_exists($pag[$link])) {
