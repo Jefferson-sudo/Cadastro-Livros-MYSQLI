@@ -11,9 +11,9 @@ $txt_editora = isset($editora[0]["editora"]) ? $editora[0]["editora"] : NULL;
 
 <h1 align="center"><?php echo $acao ?> editora</h1>
 
-<a href="../lst/lst_editora.php">Lista de Editoras</a>
-<a href="../index.php">Home</a>
-<form method="post" action="../op/op_editora.php">
+<a href="index.php?link=2">Lista de Editoras</a>
+<a href="index.php?link=1">Home</a>
+<form method="post" action="op/op_editora.php">
     <table>
         <tr>
             <td>Editora:</td>

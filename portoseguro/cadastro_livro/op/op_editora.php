@@ -26,9 +26,9 @@ if ($acao == "Excluir") {
     $ok = true;
 }
 if($ok){
-    $url = "../lst/lst_editora.php?ok=S";
+    $url = URL_BASE."index.php?link=2&?ok=S";
 }else{
-    $url = "../lst/lst_editora.php";
+    $url = URL_BASE. "index.php?link=2";
 }
 
 header("location:$url");
