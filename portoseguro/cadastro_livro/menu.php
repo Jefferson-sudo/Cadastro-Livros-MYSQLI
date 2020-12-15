@@ -7,8 +7,8 @@
     </head>
     <body>
         <ul>
-            <li><a href="frm/frm_editora.php"> Nova editora</a></li>
-            <li><a href="lst/lst_editora.php">Lista de editoras</a></li>
+            <li><a href="index.php?link=3"> Nova editora</a></li>
+            <li><a href="index.php?link=2">Lista de editoras</a></li>
 
         </ul>
     </body>

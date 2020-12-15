@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+    require("config/config.php");
+    require ("config/crud.php");
+?>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -6,7 +10,7 @@
         <title>JM ligando você ao mundo do conhecimento</title>
     </head>
     <body>
-       
+
 
         <table border="1" align="center" width="100%" cellpading="0" cellspacing="0" >
             <tr>
@@ -19,7 +23,23 @@
                                 <table width="600" cellpacing="0" cellspacing="0">
                                     <tr>
                                         <td>
-                                            <?php include 'home.php' ?>
+                                            <?php
+                                            @$link = filter_input(INPUT_GET, "link");
+
+                                            $pag [1] = "home.php";
+                                            $pag [2] = "lst/lst_editora.php";
+                                            $pag [3] = "frm/frm_editora.php";
+
+                                            if (!empty($link)) {
+                                                if (file_exists($pag[$link])) {
+                                                    include $pag[$link];
+                                                } else {
+                                                    include "home.php";
+                                                }
+                                            } else {
+                                                include "home.php";
+                                            }
+                                            ?>
                                         </td>
                                     </tr>
                                 </table>
