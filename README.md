@@ -1,3 +1,8 @@
 # Cadastro-Livros-MYSQLI
-Sistema para cadastro de livros e editoras para ex. bibliotecas.
-Curso conexão com banco de dados em PHP usando mysqli do professor Manoel Jailton da formação PHP
+Sistema para cadastro de livros.
+
+O sistema foi criado com a intenção de aprender e aperfeiçoar meus conhecimentos em desenvolvimento back-end. O foco foi totalmente na parte de back-end e por isso não trabalharei o front-end.
+
+O sistemas tem todos as operações basicas do CRUD. 
+
+Você pode usar os códigos para melhorá-los,estudar programação, ou qualquer outro fim.
