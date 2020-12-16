@@ -17,8 +17,20 @@ $txt_autor = isset($livro[0]["autor"]) ? $livro[0]["autor"] : NULL;
 <form method="post" action="op/op_livro.php">
     <table>
         <tr>
-            <td>ID editora:</td>
-            <td><input type="text" name="txt_id_editora" value="<?php echo $id_editora; ?>"></td>
+            <td>Editora:</td>
+            <td>
+                <select name="txt_id_editora">
+                    <?php
+                    $editoras = queryData("editora");
+                    foreach ($editoras as $editora) {
+                        $id_Editora = $editora ["id_editora"];
+                        $txt_Editora = $editora["editora"];
+                        $selecionado = ($id_Editora == $id_editora) ? "selected" : "";
+                        echo "<option value='$id_Editora  $selecionado'>$txt_Editora</option>";
+                    }
+                    ?>
+                </select>>
+                <input type="text" name="txt_id_editora" value="<?php echo $id_editora; ?>"></td>
         </tr>
         <tr> 
             <td>Livro:</td>
