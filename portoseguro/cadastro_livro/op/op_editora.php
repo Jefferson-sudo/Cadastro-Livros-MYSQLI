@@ -7,7 +7,7 @@ $id_editora = isset($_POST["id"]) ? $_POST["id"] : NULL;
 $acao = isset($_POST["acao"]) ? $_POST["acao"] : "Inserir";
 
 $dados = array(
-    "editora" => trim(filter_input(INPUT_POST,"txt_editora"))
+    "editora" => trim(filter_input(INPUT_POST, "txt_editora"))
 );
 
 
@@ -25,10 +25,10 @@ if ($acao == "Excluir") {
     deleteData("editora", "id_editora = " . $id_editora);
     $ok = true;
 }
-if($ok){
-    $url =URL_BASE."../index.php?link=2&?ok=S";
-}else{
-    $url =URL_BASE. "../index.php?link=2";
+if ($ok) {
+    $url = URL_BASE . "/index.php?link=2";
+} else {
+    $url = URL_BASE . "/index.php?link=5";
 }
 
 header("location:$url");

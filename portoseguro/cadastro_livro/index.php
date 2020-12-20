@@ -31,6 +31,7 @@ require ("config/crud.php");
                                             $pag [3] = "frm/frm_editora.php";
                                             $pag [4] = "lst/lst_livro.php";
                                             $pag [5] = "frm/frm_livro.php";
+                                            $pag [6] = "erro.php";
 
 
                                             if (!empty($link)) {

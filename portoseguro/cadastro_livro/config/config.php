@@ -12,3 +12,5 @@ define("USER", "root");
 define("PASSWORD", "");
 define("DATABASE", "cadastro_livro");
 define("CHARSET", "utd-8");
+
+define("URL_BASE","http://localhost/CadastroLivro/portoseguro/cadastro_livro/");

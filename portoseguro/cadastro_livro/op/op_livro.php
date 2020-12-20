@@ -39,9 +39,9 @@ if ($acao == "Excluir") {
     $ok = true;
 }
 if ($ok) {
-    $url = URL_BASE ."/index.php?link=4&?ok=S";
-} else {
     $url = URL_BASE ."/index.php?link=4";
+} else {
+    $url = URL_BASE ."/index.php?link=5";
 }
 
 header("location:$url");
